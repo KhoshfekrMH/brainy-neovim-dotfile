@@ -45,7 +45,6 @@ return {
 				"python",
 				"markdown",
 				"markdown_inline",
-				"latex",
 			},
 			incremental_selection = {
 				enable = true,
