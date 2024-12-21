@@ -1,10 +1,15 @@
+function LineNumberColors()
+	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#51B3EC", bold = true })
+	vim.api.nvim_set_hl(0, "LineNr", { fg = "white", bold = true })
+	vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FB508F", bold = true })
+end
+
 return {
-	"sainnhe/gruvbox-material",
+	"catppuccin/nvim",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		vim.g.gruvbox_material_enable_italic = true
-		vim.g.gruvbox_material_ui_contrast = "high"
-		vim.cmd.colorscheme("gruvbox-material")
+		LineNumberColors()
+		vim.cmd.colorscheme("catppuccin-mocha")
 	end,
 }
