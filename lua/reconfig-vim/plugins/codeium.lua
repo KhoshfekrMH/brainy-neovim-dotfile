@@ -1,18 +1,28 @@
 return {
-	"Exafunction/codeium.vim",
+	"Exafunction/windsurf.nvim",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"hrsh7th/nvim-cmp",
+	},
 	config = function()
-		-- Change '<C-g>' here to any keycode you like.
-		vim.keymap.set("i", "<C-g>", function()
-			return vim.fn["codeium#Accept"]()
-		end, { expr = true, silent = true })
-		vim.keymap.set("i", "<c-;>", function()
-			return vim.fn["codeium#CycleCompletions"](1)
-		end, { expr = true, silent = true })
-		vim.keymap.set("i", "<c-,>", function()
-			return vim.fn["codeium#CycleCompletions"](-1)
-		end, { expr = true, silent = true })
-		vim.keymap.set("i", "<c-x>", function()
-			return vim.fn["codeium#Clear"]()
-		end, { expr = true, silent = true })
+		require("codeium").setup({
+			detect_proxy = true, -- Enable proxy detection
+
+			api = {
+				port = 443,
+			},
+
+			virtual_text = {
+				enabled = true,
+				idle_delay = 75,
+				map_keys = true,
+				key_bindings = {
+					accept = "<Tab>",
+					next = "<M-]>",
+					prev = "<M-[>",
+				},
+			},
+			enable_cmp_source = true,
+		})
 	end,
 }
