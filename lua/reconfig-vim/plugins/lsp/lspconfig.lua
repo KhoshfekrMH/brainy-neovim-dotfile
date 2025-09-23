@@ -79,15 +79,12 @@ return {
 		})
 
 		-- Mason: setup all installed servers automatically
-		mason_lspconfig.setup_handlers({
-			function(server_name)
-				-- Use new API
-				vim.lsp.config(server_name, { capabilities = capabilities })
-				vim.lsp.enable(server_name)
-			end,
-		})
-
-		-- Custom server configs
+		-- mason_lspconfig.setup_handlers({
+		--     function(server_name)
+		--         vim.lsp.config(server_name, { capabilities = capabilities })
+		--         vim.lsp.enable(server_name)
+		--     end,
+		-- })
 
 		-- Lua server
 		vim.lsp.config("lua_ls", {
