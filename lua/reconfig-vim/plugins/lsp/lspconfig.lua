@@ -14,12 +14,30 @@ return {
 		-- Capabilities for autocompletion
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		-- Set diagnostic symbols
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		-- Define diagnostic symbols (icons)
+		local signs = {
+			{ name = "DiagnosticSignError", text = "" },
+			{ name = "DiagnosticSignWarn", text = "" },
+			{ name = "DiagnosticSignHint", text = "󰠠" },
+			{ name = "DiagnosticSignInfo", text = "" },
+		}
+
+		for _, sign in ipairs(signs) do
+			vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 		end
+
+		-- Enable diagnostic signs
+		vim.diagnostic.config({
+			signs = {
+				active = signs,
+			},
+		})
+
+		-- Custom highlight colors
+		vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#F44747" })
+		vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = "#FF8800" })
+		vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = "#4FC1FF" })
+		vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = "#DCDCAA" })
 
 		-- LSP keymaps
 		vim.api.nvim_create_autocmd("LspAttach", {
