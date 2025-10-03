@@ -30,10 +30,11 @@ keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv")
 
 -- quickFix lsp
 keymap.set("n", "<leader>qf", function()
+	local line = vim.api.nvim_win_get_cursor(0)[1] - 1
 	vim.lsp.buf.code_action({
 		context = {
 			only = { "quickfix" },
-			diagnostics = vim.lsp.diagnostic.get_line_diagnostics(),
+			diagnostics = vim.diagnostic.get(0, { lnum = line }),
 		},
 	})
 end, { desc = "LSP Quickfix" })
