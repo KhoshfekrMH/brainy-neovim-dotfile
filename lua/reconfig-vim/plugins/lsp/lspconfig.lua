@@ -14,12 +14,30 @@ return {
 		-- Capabilities for autocompletion
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		-- Set diagnostic symbols
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		-- Define diagnostic symbols (icons)
+		local signs = {
+			{ name = "DiagnosticSignError", text = "" },
+			{ name = "DiagnosticSignWarn", text = "" },
+			{ name = "DiagnosticSignHint", text = "󰠠" },
+			{ name = "DiagnosticSignInfo", text = "" },
+		}
+
+		for _, sign in ipairs(signs) do
+			vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 		end
+
+		-- Enable diagnostic signs
+		vim.diagnostic.config({
+			signs = {
+				active = signs,
+			},
+		})
+
+		-- Custom highlight colors
+		vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#F44747" })
+		vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = "#FF8800" })
+		vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = "#4FC1FF" })
+		vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = "#DCDCAA" })
 
 		-- LSP keymaps
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -118,11 +136,33 @@ return {
 		})
 		vim.lsp.enable("graphql")
 
-		-- Emmet server
+		-- emmet server
 		vim.lsp.config("emmet_ls", {
 			capabilities = capabilities,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
 		vim.lsp.enable("emmet_ls")
+
+		-- your dictionary
+		local custom_settings = {
+			ltex = {
+				dictionary = {
+					["en-US"] = { "pandoc", "norg", "Uncategorised", "minorg", "json", "( )", "Neorg" }, -- use full lang code (important!)
+				},
+				disabledRules = {
+					["en-US"] = { "COMMA_PARENTHESIS_WHITESPACE" },
+				},
+			},
+		}
+
+		-- merge with defaults
+		local final_settings = vim.tbl_deep_extend("force", {}, custom_settings)
+
+		vim.lsp.config("ltex_plus", {
+			capabilities = capabilities,
+			filetypes = { "markdown", "org", "norg", "text" },
+			settings = final_settings,
+		})
+		vim.lsp.enable("ltex_plus")
 	end,
 }

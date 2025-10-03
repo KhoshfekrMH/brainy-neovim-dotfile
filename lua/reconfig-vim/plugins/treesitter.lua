@@ -44,6 +44,7 @@ return {
 				"go",
 				"rust",
 				"kotlin",
+				"norg",
 			},
 			incremental_selection = {
 				enable = true,
