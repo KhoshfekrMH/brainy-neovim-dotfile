@@ -136,11 +136,33 @@ return {
 		})
 		vim.lsp.enable("graphql")
 
-		-- Emmet server
+		-- emmet server
 		vim.lsp.config("emmet_ls", {
 			capabilities = capabilities,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
 		vim.lsp.enable("emmet_ls")
+
+		-- your dictionary
+		local custom_settings = {
+			ltex = {
+				dictionary = {
+					["en-US"] = { "pandoc", "norg", "Uncategorised", "minorg", "json", "( )", "Neorg" }, -- use full lang code (important!)
+				},
+				disabledRules = {
+					["en-US"] = { "COMMA_PARENTHESIS_WHITESPACE" },
+				},
+			},
+		}
+
+		-- merge with defaults
+		local final_settings = vim.tbl_deep_extend("force", {}, custom_settings)
+
+		vim.lsp.config("ltex_plus", {
+			capabilities = capabilities,
+			filetypes = { "markdown", "org", "norg", "text" },
+			settings = final_settings,
+		})
+		vim.lsp.enable("ltex_plus")
 	end,
 }
