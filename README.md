@@ -1,7 +1,6 @@
-
 # 🧠 brainy-neovim-dotfile
 
-A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](https://www.youtube.com/@joseanmartinez). This setup is designed for developers who want a clean workflow with power tools like LSP, autocompletion, git integration, and enhanced visuals—all managed via `lazy.nvim`.
+A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](https://www.youtube.com/@joseanmartinez). Designed for developers seeking a clean workflow with LSP, autocompletion, Git integration, enhanced navigation, and polished visuals—all managed via `lazy.nvim`.
 
 > ⚡️ Built with Neovim `0.9+` and configured in **Lua**
 
@@ -12,8 +11,8 @@ A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](h
 ```bash
 ~/.config/nvim
 ├── init.lua                 # Main entry point
-├── lazy-lock.json          # Plugin lockfile
-└── lua/reconfig-vim/       # Main config folder
+├── lazy-lock.json           # Plugin lockfile
+└── lua/reconfig-vim/        # Main config folder
     ├── core/               # Options & keymaps
     │   ├── init.lua
     │   ├── keymaps.lua
@@ -24,11 +23,11 @@ A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](h
         ├── autopairs.lua
         ├── auto-session.lua
         ├── bufferline.lua
-        ├── codeium.lua
         ├── colorizer.lua
         ├── colorscheme.lua
         ├── comment.lua
         ├── dressing.lua
+        ├── flash.lua
         ├── formatting.lua
         ├── gitsigns.lua
         ├── harpoon.lua
@@ -39,7 +38,7 @@ A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](h
         │   ├── lspconfig.lua
         │   └── mason.lua
         ├── lualine.lua
-        ├── mason-workaround.lua
+        ├── mini-file.lua
         ├── neocord.lua
         ├── nvim-cmp.lua
         ├── nvim-tree.lua
@@ -52,7 +51,7 @@ A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](h
         ├── ts-autotag.lua
         ├── vim-maximizer.lua
         └── which-key.lua
-````
+```
 
 ---
 
@@ -72,6 +71,8 @@ A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](h
 | Tabline              | `bufferline.nvim`                |
 | Comments             | `Comment.nvim`, `todo-comments`  |
 | Session Management   | `auto-session`                   |
+| Flash Navigation     | `flash.nvim`                     |
+| File Management      | `mini-file.lua`                  |
 | UI Enhancements      | `which-key`, `dressing`, `alpha` |
 | Discord Presence     | `neocord`                        |
 | Formatting & Linting | `null-ls`, `lint`                |
@@ -81,7 +82,6 @@ A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](h
 | Indentation Guides   | `indent-blankline.nvim`          |
 | Surround Text        | `nvim-surround`                  |
 | Diagnostics & Issues | `trouble.nvim`                   |
-| AI Suggestion        | `codeium.nvim`                   |
 
 ---
 
@@ -92,7 +92,7 @@ git clone https://github.com/yourusername/brainy-neovim-dotfile ~/.config/nvim
 nvim
 ```
 
-Lazy.nvim will auto-install the plugins on first launch.
+Lazy.nvim will auto-install plugins on first launch.
 
 ---
 
@@ -100,10 +100,10 @@ Lazy.nvim will auto-install the plugins on first launch.
 
 This dotfile is:
 
-* ⚡ **Fast** – minimal overhead, fast startup
-* 🧩 **Modular** – each plugin is configured in its own file
-* 🛠 **Developer-focused** – with full LSP, formatting, and debugging support
-* 🌌 **Aesthetic** – clean visuals, keymap hints, and rich UI
+* ⚡ **Fast** – minimal overhead, optimized startup
+* 🧩 **Modular** – each plugin has its own configuration file
+* 🛠 **Developer-focused** – full LSP, formatting, navigation, and debugging support
+* 🌌 **Aesthetic** – clean visuals, keymap hints, enhanced navigation
 
 ---
 

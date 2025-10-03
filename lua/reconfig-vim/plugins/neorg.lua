@@ -39,6 +39,20 @@ return {
 						workspaces = {
 							--NOTE: write your path (Tomb-specific and only exist when the vault mounted!)
 							default = "/run/media/p0uya/Neorg-di-Vault/Neorg-di-Vault",
+return {
+	"nvim-neorg/neorg",
+	lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+	version = "*", -- Pin Neorg to the latest stable release
+	config = function()
+		require("neorg").setup({
+			load = {
+				["core.defaults"] = {},
+				["core.concealer"] = {},
+				["core.dirman"] = {
+					config = {
+						workspaces = {
+							default = "~/neorg/default",
+							neorgTest = "~/Projects/temp-project/neorg-test",
 						},
 						default_workspace = "default",
 					},
@@ -130,5 +144,7 @@ return {
 		-- Optional: add more text-object keymaps here
 		-- map({ "o", "x" }, "iT", "<Plug>(neorg.text-objects.textobject.tag.inner)", opts)
 		-- map({ "o", "x" }, "aT", "<Plug>(neorg.text-objects.textobject.tag.outer)", opts)
+			},
+		})
 	end,
 }
