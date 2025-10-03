@@ -37,8 +37,8 @@ return {
 				["core.dirman"] = {
 					config = {
 						workspaces = {
+							--NOTE: write your path (Tomb-specific and only exist when the vault mounted!)
 							default = "/run/media/p0uya/Neorg-di-Vault/Neorg-di-Vault",
-							testNeorg = "~/Projects/temp-project/neorg-test",
 						},
 						default_workspace = "default",
 					},
@@ -76,6 +76,7 @@ return {
 				["core.text-objects"] = {}, -- required for item/heading movement
 				["external.templates"] = {
 					config = {
+						--NOTE: write your path (Tomb-specific and only exist when the vault mounted!)
 						templates_dir = "/run/media/p0uya/Neorg-di-Vault/Neorg-di-Vault/Templates",
 						default_subcommand = "add", -- or "fload" / "load"
 					},
