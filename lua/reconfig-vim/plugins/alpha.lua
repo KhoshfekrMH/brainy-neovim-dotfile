@@ -16,7 +16,7 @@ return {
 			"  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
 			"                                                     ",
 			"                                                     ",
-			"            Help poor childeren in Uganda            ",
+			"            Help poor children in Uganda            ",
 		}
 
 		-- Set menu
