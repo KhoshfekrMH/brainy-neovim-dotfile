@@ -57,7 +57,6 @@ A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](h
 │           ├── ts-autotag.lua
 │           ├── vim-maximizer.lua
 │           ├── which-key.lua
-│           └── windsurf.lua
 └── README.md
 ```
 
@@ -107,15 +106,13 @@ Lazy.nvim will auto-install plugins on first launch.
 ## ⚠️ Warnings & Requirements
 
 1. **Dependencies:**
-
-   * Requires Kitty terminal for optimal visuals.
-   * Requires magic-cli if using advanced features.
+   - Requires Kitty terminal for optimal visuals.
+   - Requires magic-cli if using advanced features.
 
 2. **Neorg Paths:**
-
-   * Paths in `lua/reconfig-vim/plugins/neorg.lua` are Tomb-specific by default (`/run/media/p0uya/...`).
-   * **Update these paths** to match your environment or use dynamic path resolution (`vim.fn.expand` or environment variables).
-   * Failure to update may prevent Neorg from loading workspaces or templates.
+   - Paths in `lua/reconfig-vim/plugins/neorg.lua` are Tomb-specific by default (`/run/media/p0uya/...`).
+   - **Update these paths** to match your environment or use dynamic path resolution (`vim.fn.expand` or environment variables).
+   - Failure to update may prevent Neorg from loading workspaces or templates.
 
 ---
 
@@ -123,14 +120,14 @@ Lazy.nvim will auto-install plugins on first launch.
 
 This dotfile is:
 
-* ⚡ **Fast** – minimal overhead, optimized startup
-* 🧩 **Modular** – each plugin has its own configuration file
-* 🛠 **Developer-focused** – full LSP, formatting, navigation, and debugging support
-* 🌌 **Aesthetic** – clean visuals, keymap hints, enhanced navigation
+- ⚡ **Fast** – minimal overhead, optimized startup
+- 🧩 **Modular** – each plugin has its own configuration file
+- 🛠 **Developer-focused** – full LSP, formatting, navigation, and debugging support
+- 🌌 **Aesthetic** – clean visuals, keymap hints, enhanced navigation
 
 ---
 
 ## 🙏 Credit
 
-* Inspired by [Josean Martinez’s Neovim series](https://www.youtube.com/@joseanmartinez)
-* Built using `lazy.nvim` and best practices in modern Neovim
+- Inspired by [Josean Martinez’s Neovim series](https://www.youtube.com/@joseanmartinez)
+- Built using `lazy.nvim` and best practices in modern Neovim
