@@ -10,47 +10,55 @@ A modern, fast, and minimal Neovim configuration inspired by [Josean Martinez](h
 
 ```bash
 ~/.config/nvim
-├── init.lua                 # Main entry point
-├── lazy-lock.json           # Plugin lockfile
-└── lua/reconfig-vim/        # Main config folder
-    ├── core/               # Options & keymaps
-    │   ├── init.lua
-    │   ├── keymaps.lua
-    │   └── options.lua
-    ├── lazy.lua            # Lazy.nvim bootstrap
-    └── plugins/            # Plugin configurations
-        ├── alpha.lua
-        ├── autopairs.lua
-        ├── auto-session.lua
-        ├── bufferline.lua
-        ├── colorizer.lua
-        ├── colorscheme.lua
-        ├── comment.lua
-        ├── dressing.lua
-        ├── flash.lua
-        ├── formatting.lua
-        ├── gitsigns.lua
-        ├── harpoon.lua
-        ├── indent-blankline.lua
-        ├── lazygit.lua
-        ├── linting.lua
-        ├── lsp/
-        │   ├── lspconfig.lua
-        │   └── mason.lua
-        ├── lualine.lua
-        ├── mini-file.lua
-        ├── neocord.lua
-        ├── nvim-cmp.lua
-        ├── nvim-tree.lua
-        ├── substitute.lua
-        ├── surround.lua
-        ├── telescope.lua
-        ├── todo-comments.lua
-        ├── treesitter.lua
-        ├── trouble.lua
-        ├── ts-autotag.lua
-        ├── vim-maximizer.lua
-        └── which-key.lua
+├── init.lua
+├── lazy-lock.json
+├── lua
+│   └── reconfig-vim
+│       ├── core
+│       │   ├── init.lua
+│       │   ├── keymaps.lua
+│       │   └── options.lua
+│       ├── lazy.lua
+│       └── plugins
+│           ├── alpha.lua
+│           ├── autopairs.lua
+│           ├── auto-session.lua
+│           ├── bufferline.lua
+│           ├── colorizer.lua
+│           ├── colorscheme.lua
+│           ├── comment.lua
+│           ├── dressing.lua
+│           ├── flash.lua
+│           ├── formatting.lua
+│           ├── gitsigns.lua
+│           ├── harpoon.lua
+│           ├── image.lua
+│           ├── indent-blankline.lua
+│           ├── init.lua
+│           ├── lazygit.lua
+│           ├── linting.lua
+│           ├── lsp
+│           │   ├── lspconfig.lua
+│           │   └── mason.lua
+│           ├── lualine.lua
+│           ├── luaSnip.lua
+│           ├── mini-file.lua
+│           ├── mini-icon.lua
+│           ├── neocord.lua
+│           ├── neorg.lua        <-- WARNING: Update paths for your environment
+│           ├── nvim-cmp.lua
+│           ├── nvim-tree.lua
+│           ├── substitute.lua
+│           ├── surround.lua
+│           ├── telescope.lua
+│           ├── todo-comments.lua
+│           ├── treesitter.lua
+│           ├── trouble.lua
+│           ├── ts-autotag.lua
+│           ├── vim-maximizer.lua
+│           ├── which-key.lua
+│           └── windsurf.lua
+└── README.md
 ```
 
 ---
@@ -93,6 +101,21 @@ nvim
 ```
 
 Lazy.nvim will auto-install plugins on first launch.
+
+---
+
+## ⚠️ Warnings & Requirements
+
+1. **Dependencies:**
+
+   * Requires Kitty terminal for optimal visuals.
+   * Requires magic-cli if using advanced features.
+
+2. **Neorg Paths:**
+
+   * Paths in `lua/reconfig-vim/plugins/neorg.lua` are Tomb-specific by default (`/run/media/p0uya/...`).
+   * **Update these paths** to match your environment or use dynamic path resolution (`vim.fn.expand` or environment variables).
+   * Failure to update may prevent Neorg from loading workspaces or templates.
 
 ---
 
