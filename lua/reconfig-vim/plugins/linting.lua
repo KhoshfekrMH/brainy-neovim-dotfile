@@ -12,6 +12,8 @@ return {
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
 			python = { "pylint" },
+			markdown = { "codespell" },
+			norg = { "codespell" },
 		}
 
 		eslint.args = {
