@@ -107,42 +107,7 @@ return {
 
 				["core.summary"] = {
 					config = {
-						strategy = function(files, ws_root)
-							local summary_lines = { "* Codex" }
-							local grand_parents = { "TODO", "NOTE", "JOURNAL", "KANBAN" }
-
-							for _, category in ipairs(grand_parents) do
-								table.insert(summary_lines, "** " .. category)
-								for _, file in ipairs(files) do
-									local path = tostring(file)
-									local name = path:match("([^/]+)%.norg$") or path
-
-									-- Read the file to check if metadata includes our category
-									local f = io.open(path, "r")
-									local content = f and f:read("*all") or ""
-									if f then
-										f:close()
-									end
-
-									-- If file contains the category (metadata) or path includes it
-									if
-										content:match("categories:%s*%[.-" .. category .. ".-%]")
-										or path:match("/" .. category .. "/")
-									then
-										table.insert(
-											summary_lines,
-											string.format(
-												"  - {:$/%s:}[%s]",
-												path:gsub("^" .. ws_root .. "/", ""),
-												name
-											)
-										)
-									end
-								end
-							end
-
-							return summary_lines
-						end,
+						strategy = "by_path",
 					},
 				},
 
